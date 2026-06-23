@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parmeet Singh | Web Designer & Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Parmeet Singh - Web Designer & Full-Stack Developer specializing in high-converting, responsive web designs.">
+  <meta name="description" content="Portfolio of Parmeet Singh - Web Designer & Full-Stack Developer showcasing 15 responsive, conversion-driven websites.">
   
   <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,15 +14,15 @@
   <style>
     /* Sleek Dark Mode & Glassmorphism Design System */
     :root {
-      --bg-dark: #0a0b10;
+      --bg-dark: #07080d;
       --bg-card: rgba(20, 22, 35, 0.45);
-      --border-color: rgba(255, 255, 255, 0.08);
+      --border-color: rgba(255, 255, 255, 0.07);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
       --primary: #8b5cf6; /* Vibrant violet */
-      --primary-glow: rgba(139, 92, 246, 0.15);
+      --primary-glow: rgba(139, 92, 246, 0.12);
       --secondary: #06b6d4; /* Neon Cyan */
-      --secondary-glow: rgba(6, 182, 212, 0.15);
+      --secondary-glow: rgba(6, 182, 212, 0.12);
     }
 
     * {
@@ -53,25 +53,31 @@
     /* Ambient Glow Backgrounds */
     .glow-blob {
       position: absolute;
-      width: 400px;
-      height: 400px;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
       filter: blur(150px);
       z-index: -1;
-      opacity: 0.3;
+      opacity: 0.25;
       pointer-events: none;
     }
 
     .blob-1 {
-      top: -100px;
+      top: -150px;
       right: -100px;
       background-color: var(--primary);
     }
 
     .blob-2 {
-      top: 600px;
+      top: 800px;
       left: -200px;
       background-color: var(--secondary);
+    }
+
+    .blob-3 {
+      bottom: 200px;
+      right: -100px;
+      background-color: var(--primary);
     }
 
     /* Header & Navigation */
@@ -82,7 +88,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10, 11, 16, 0.7);
+      background: rgba(7, 8, 13, 0.7);
     }
 
     .nav-wrapper {
@@ -119,7 +125,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 8rem 0 4rem;
+      padding: 7rem 0 3rem;
       text-align: center;
       position: relative;
     }
@@ -152,20 +158,53 @@
     }
 
     .hero p {
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto 2.5rem;
       color: var(--text-muted);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
 
-    /* Web Design Cases Section */
+    /* Filters Layout */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--text-main);
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
+
+    /* Portfolio Section */
     .portfolio-section {
-      padding: 6rem 0;
+      padding: 4rem 0 6rem;
     }
 
     .section-title {
       font-size: 2.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       text-align: center;
     }
 
@@ -173,27 +212,38 @@
       color: var(--secondary);
     }
 
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 3.5rem;
+      font-size: 1.05rem;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
-    /* Case Study Card with Glassmorphism */
+    /* Card styling */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
+      border-radius: 16px;
       overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
     }
 
+    .card.hidden {
+      display: none;
+    }
+
     .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(6, 182, 212, 0.3);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--secondary-glow);
+      transform: translateY(-6px);
+      border-color: rgba(6, 182, 212, 0.25);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 25px var(--secondary-glow);
     }
 
     .card-content {
@@ -204,9 +254,10 @@
     }
 
     .card h3 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 0.75rem;
       color: var(--text-main);
+      letter-spacing: -0.3px;
     }
 
     .card p {
@@ -226,7 +277,7 @@
     .tag {
       padding: 0.3rem 0.75rem;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-color);
       font-size: 0.75rem;
       color: var(--text-muted);
@@ -235,15 +286,15 @@
 
     .card-actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-top: auto;
     }
 
     .btn {
       flex: 1;
-      padding: 0.6rem 1rem;
+      padding: 0.55rem 0.75rem;
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: 0.825rem;
       font-weight: 600;
       text-align: center;
       text-decoration: none;
@@ -252,25 +303,25 @@
 
     .btn-primary {
       background: var(--secondary);
-      color: #0a0b10;
+      color: #07080d;
     }
 
     .btn-primary:hover {
       background: #22d3ee;
-      box-shadow: 0 4px 15px var(--secondary-glow);
+      box-shadow: 0 4px 12px var(--secondary-glow);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-color);
       color: var(--text-main);
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Core Skills list */
+    /* Skills Grid */
     .skills-section {
       padding: 6rem 0;
       border-top: 1px solid var(--border-color);
@@ -284,7 +335,7 @@
     }
 
     .skill-card {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.01);
       border: 1px solid var(--border-color);
       padding: 1.5rem;
       border-radius: 16px;
@@ -293,7 +344,7 @@
     }
 
     .skill-card:hover {
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.03);
       border-color: var(--primary);
     }
 
@@ -349,6 +400,7 @@
   <!-- Ambient background blobs -->
   <div class="glow-blob blob-1"></div>
   <div class="glow-blob blob-2"></div>
+  <div class="glow-blob blob-3"></div>
 
   <!-- Header -->
   <header>
@@ -361,7 +413,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="badge">Available for Web Design Projects</div>
+      <div class="badge">Available for Web Design Roles</div>
       <h1>Web Designer &<br><span class="gradient-text">Full-Stack Developer</span></h1>
       <p>I design conversion-driven, fast, and responsive user experiences, bridging the gap between Figma aesthetics and clean frontend implementation.</p>
       <a href="mailto:singh.parmeet123@gmail.com" class="contact-btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Hire Me</a>
@@ -372,16 +424,27 @@
   <section class="portfolio-section" id="portfolio">
     <div class="container">
       <h2 class="section-title">Web Design <span>Case Studies</span></h2>
+      <p class="section-subtitle">A collection of 15 premium website templates, e-commerce stores, and dashboards designed and built from scratch.</p>
+      
+      <!-- Category Filters -->
+      <div class="filter-container">
+        <button class="filter-btn active" onclick="filterSelection('all')">All Projects (15)</button>
+        <button class="filter-btn" onclick="filterSelection('luxury')">Luxury & Brand</button>
+        <button class="filter-btn" onclick="filterSelection('local')">Local Business</button>
+        <button class="filter-btn" onclick="filterSelection('fitness')">Fitness & Education</button>
+        <button class="filter-btn" onclick="filterSelection('portal')">Portals</button>
+      </div>
+
       <div class="grid">
         
         <!-- Case 1: Iron Peak Gym -->
-        <div class="card">
+        <div class="card fitness">
           <div class="card-content">
             <h3>IRONPEAK Gym</h3>
             <p>An ultra-premium, dark-themed fitness landing page. Designed with bold layout structures, high-contrast imagery containers, and fluid custom cursor interactions.</p>
             <div class="tags">
               <span class="tag">UI/UX Design</span>
-              <span class="tag">Conversion Design</span>
+              <span class="tag">Fitness Brand</span>
               <span class="tag">Vanilla CSS</span>
             </div>
             <div class="card-actions">
@@ -392,7 +455,7 @@
         </div>
 
         <!-- Case 2: Preeti Agrawal Jewelry -->
-        <div class="card">
+        <div class="card luxury">
           <div class="card-content">
             <h3>Preeti Agrawal Jewelry</h3>
             <p>An ethereal, luxury gemstone landing page. Features minimalist layout balances, fine grid borders, elegant typography hierarchy, and smooth product showcases.</p>
@@ -409,7 +472,7 @@
         </div>
 
         <!-- Case 3: Peak Roofing Co. -->
-        <div class="card">
+        <div class="card local">
           <div class="card-content">
             <h3>Peak Roofing Co.</h3>
             <p>A premium local contractor landing page. Focuses on high-converting service grids, structured contact details, customer feedback carousels, and high accessibility metrics.</p>
@@ -426,7 +489,7 @@
         </div>
 
         <!-- Case 4: Mumbai Heritage Inn -->
-        <div class="card">
+        <div class="card local">
           <div class="card-content">
             <h3>Mumbai Heritage Inn</h3>
             <p>A cozy, warm 4-star boutique hotel website. Designed with clear amenity layouts, room booking options, and warm visual branding elements.</p>
@@ -438,6 +501,193 @@
             <div class="card-actions">
               <a href="https://pms5566.github.io/mumbai-hotel-website/" target="_blank" class="btn btn-primary">Live Demo</a>
               <a href="https://github.com/pms5566/mumbai-hotel-website" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 5: Maison Noir -->
+        <div class="card luxury">
+          <div class="card-content">
+            <h3>Maison Noir</h3>
+            <p>An immersive, gold & cream web experience for a 3-Michelin-starred restaurant. Features elegant menu structures, fine layout ratios, and sommelier pairing highlights.</p>
+            <div class="tags">
+              <span class="tag">Fine Dining UI</span>
+              <span class="tag">Vanilla JS</span>
+              <span class="tag">Luxury Aesthetics</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/Maison-Web/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/Maison-Web" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 6: CÉLESTE Fashion -->
+        <div class="card luxury">
+          <div class="card-content">
+            <h3>CÉLESTE Fashion</h3>
+            <p>A premium single-page luxury fashion boutique homepage. Highlights modern font layouts, glassmorphic navigations, and scroll-triggered fade-in animations.</p>
+            <div class="tags">
+              <span class="tag">Fashion Brand UI</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Clean Minimal</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/celeste-fashion/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/celeste-fashion" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 7: Elyorra Gifting -->
+        <div class="card luxury">
+          <div class="card-content">
+            <h3>Elyorra Luxury Gifting</h3>
+            <p>A beautiful e-commerce landing page designed for luxury gift selections. Features soft UI balances, detailed product showcases, and clear call-to-actions.</p>
+            <div class="tags">
+              <span class="tag">Giftware UI</span>
+              <span class="tag">Product Catalog</span>
+              <span class="tag">Marketing Web</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/elyorra-website/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/elyorra-website" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 8: Sweet Bake Studio -->
+        <div class="card local">
+          <div class="card-content">
+            <h3>Sweet Bake Studio</h3>
+            <p>A boutique bakery & custom cake shop website. Designed with friendly colors, product carousels, and clear custom order submission forms.</p>
+            <div class="tags">
+              <span class="tag">Bakery Store UI</span>
+              <span class="tag">Local Business</span>
+              <span class="tag">Order Form</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/sweet-bake-studio/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/sweet-bake-studio" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 9: MyRajpura Bento Grid -->
+        <div class="card portal">
+          <div class="card-content">
+            <h3>MyRajpura Bento Grid</h3>
+            <p>A modern bento-style directory and news redesign for Rajpura city, organizing headlines, local ads, and category lists into a beautiful grid layout.</p>
+            <div class="tags">
+              <span class="tag">Bento Grid UI</span>
+              <span class="tag">News Portal</span>
+              <span class="tag">Local Directory</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/myrajpura-demo/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/myrajpura-demo" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 10: Sarna Travels -->
+        <div class="card local">
+          <div class="card-content">
+            <h3>Sarna Travels</h3>
+            <p>A taxi & tour booking platform featuring pricing packages, local Punjab tour highlights, and responsive booking forms.</p>
+            <div class="tags">
+              <span class="tag">Travel & Booking UI</span>
+              <span class="tag">Local Service</span>
+              <span class="tag">Lead Capture</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/sarna-travels/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/sarna-travels" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 11: Pranic Healing Portal -->
+        <div class="card portal">
+          <div class="card-content">
+            <h3>Pranic Healing Portal</h3>
+            <p>A functional dashboard and study resource portal for students practicing pranic healing. Designed for clean text layout and resource libraries.</p>
+            <div class="tags">
+              <span class="tag">Education Dashboard</span>
+              <span class="tag">Portal UI</span>
+              <span class="tag">HTML/CSS</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/pranic-healing-portal/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/pranic-healing-portal" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 12: Trade Academy -->
+        <div class="card fitness">
+          <div class="card-content">
+            <h3>Trade Academy</h3>
+            <p>A clean, focused landing page for a trading education company. Outlines course syllabus, student testimonials, and instructor credentials.</p>
+            <div class="tags">
+              <span class="tag">EdTech UI</span>
+              <span class="tag">Landing Page</span>
+              <span class="tag">Trading Education</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/trade-academy/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/trade-academy" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 13: Pranic Healing Academy -->
+        <div class="card fitness">
+          <div class="card-content">
+            <h3>Pranic Healing Academy</h3>
+            <p>A single-page academic website representing regional pranic healing training schedules and local center directories.</p>
+            <div class="tags">
+              <span class="tag">Academy UI</span>
+              <span class="tag">Schedules Grid</span>
+              <span class="tag">Clean Design</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/pranic-healing-2/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/pranic-healing-2" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 14: Vanguard School Website -->
+        <div class="card local">
+          <div class="card-content">
+            <h3>Vanguard School</h3>
+            <p>A professional homepage design for Vanguard International School. Highlights school divisions, calendar events, and parent-student dashboards.</p>
+            <div class="tags">
+              <span class="tag">Education UI</span>
+              <span class="tag">Grid Layouts</span>
+              <span class="tag">Institution Web</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/vanguard-school-website/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/vanguard-school-website" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 15: Saffron Restaurant -->
+        <div class="card luxury">
+          <div class="card-content">
+            <h3>Saffron Restaurant</h3>
+            <p>An upscale restaurant website redesigned with the luxurious visual style of Taj Hotels. Focuses on booking modules and elegant menu showcases.</p>
+            <div class="tags">
+              <span class="tag">Redesign Case</span>
+              <span class="tag">Taj Hotels Style</span>
+              <span class="tag">Luxury Dining</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/saffron-restaurant/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/saffron-restaurant" target="_blank" class="btn btn-secondary">Source Code</a>
             </div>
           </div>
         </div>
@@ -484,6 +734,37 @@
       <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Parmeet Singh. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- JavaScript Filter Logic -->
+  <script>
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("card");
+      if (c == "all") c = "";
+      
+      // Update filter button styling
+      var btns = document.getElementsByClassName("filter-btn");
+      for (i = 0; i < btns.length; i++) {
+        btns[i].classList.remove("active");
+        if (c == "" && btns[i].innerText.includes("All")) {
+          btns[i].classList.add("active");
+        } else if (c != "" && btns[i].innerText.toLowerCase().includes(c)) {
+          btns[i].classList.add("active");
+        } else if (c == "fitness" && btns[i].innerText.includes("Fitness")) {
+          btns[i].classList.add("active");
+        }
+      }
+
+      for (i = 0; i < x.length; i++) {
+        // Toggle hidden class based on selection
+        if (x[i].className.indexOf(c) > -1) {
+          x[i].classList.remove("hidden");
+        } else {
+          x[i].classList.add("hidden");
+        }
+      }
+    }
+  </script>
 
 </body>
 </html>
