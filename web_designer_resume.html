@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parmeet Singh - Resume (Web Designer & Developer)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #475569;
+            --accent: #0f766e; /* Slate teal accent for design-focus */
+            --accent-bg: #f0fdfa;
+            --text: #334155;
+            --text-dark: #0f172a;
+            --border: #e2e8f0;
+            --bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: #f8fafc;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 50px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: var(--text-dark);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary-light);
+        }
+
+        .contact-info a {
+            color: var(--primary-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item:not(:last-child)::after {
+            content: "|";
+            margin-left: 15px;
+            color: var(--border);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        /* Grid for Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .skill-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 13px;
+        }
+
+        .skill-card strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        /* Experience Styles */
+        .job {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .job-meta {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .job-date {
+            font-size: 13px;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .job-details {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .job-details li {
+            font-size: 13.5px;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        .job-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background-color: var(--accent-bg);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box ul {
+            list-style-type: none;
+        }
+
+        .highlight-box li {
+            font-size: 13.5px;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .highlight-box li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Education & Certs */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .edu-item, .cert-item {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .edu-title, .cert-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 13.5px;
+        }
+
+        .edu-subtitle {
+            color: var(--primary-light);
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .edu-date {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .cert-list {
+            list-style-type: none;
+        }
+
+        .cert-list li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .cert-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                border: none;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>Parmeet Singh</h1>
+            <div class="subtitle">Freelance Web Designer | Full-Stack Developer</div>
+            <div class="contact-info">
+                <span class="contact-item">
+                    <a href="mailto:singh.parmeet123@gmail.com">singh.parmeet123@gmail.com</a>
+                </span>
+                <span class="contact-item">Rajpura, Punjab, India</span>
+                <span class="contact-item">
+                    <a href="https://pms5566.github.io" target="_blank">pms5566.github.io</a>
+                </span>
+                <span class="contact-item">
+                    <a href="https://github.com/pms5566" target="_blank">github.com/pms5566</a>
+                </span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p class="summary-text">
+                Creative and detail-oriented Freelance Web Designer and Full-Stack Developer with 6+ years of experience building premium, high-converting responsive web applications and interfaces. Specialized in modern frontend frameworks (React, Angular) and utility-first styling (Tailwind CSS, custom CSS/Sass). Expert at designing intuitive layouts, premium brand aesthetics, and custom components, with a proven track record of delivering 15+ live web projects. Combines coding expertise (B.Tech in IT) with a sophisticated design sense to create performant, visual-first digital experiences.
+            </p>
+        </section>
+
+        <section>
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <strong>Web & UI/UX Design</strong>
+                    Responsive design systems, typography scales, HSL-tailored custom color palettes, wireframing, component-driven layouts, and interface prototyping.
+                </div>
+                <div class="skill-card">
+                    <strong>Frontend Engineering</strong>
+                    HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Angular, Tailwind CSS, DaisyUI, SVG icons, and interactive micro-animations.
+                </div>
+                <div class="skill-card">
+                    <strong>Data Visualization & Analytics</strong>
+                    Interactive charts, financial dashboards, and trading graphics using Chart.js, integrated with REST APIs for real-time reporting.
+                </div>
+                <div class="skill-card">
+                    <strong>Backend & Automation</strong>
+                    Python, Node.js, RESTful API design, data processing, and custom script automation (openpyxl, portfolio automation).
+                </div>
+                <div class="skill-card">
+                    <strong>DevOps & Workflow</strong>
+                    Docker containerization, Git/GitHub version control workflows, staging/production deployments, and responsive cross-browser testing.
+                </div>
+                <div class="skill-card">
+                    <strong>Technical & Data Modeling</strong>
+                    Quantitative analytics, data modeling, financial statement analysis, and custom VBA dashboard reporting.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Featured Web Projects</h2>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>Peak Roofing Co.:</strong> High-impact, responsive local business template designed with clean grids and service sections.</li>
+                    <li><strong>Sarna Travels:</strong> Modern immersive travel agency page featuring curated destination galleries and booking layouts.</li>
+                    <li><strong>Maison Noir:</strong> Ultra-premium luxury brand website focusing on minimalist aesthetics and glassmorphic styling.</li>
+                    <li><strong>Preeti Agrawal Jewelry:</strong> Visual-first luxury e-commerce grid design focusing on elegance and high-resolution details.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Freelance Web Designer & Developer</span>
+                    <span class="job-date">July 2022 – Present (4 years)</span>
+                </div>
+                <div class="job-meta">Self-Employed | Rajpura, India</div>
+                <ul class="job-details">
+                    <li>Designed and implemented responsive websites and applications for local services, luxury brands, and e-commerce niches.</li>
+                    <li>Built customized dashboards, portfolio tracking tools, and interactive finance UIs using React, TypeScript, and Chart.js.</li>
+                    <li>Crafted premium design systems using Tailwind CSS and CSS Variables, enforcing HSL color themes and consistent typography.</li>
+                    <li>Ensured cross-browser compatibility, fast page speeds, and flawless mobile layouts across all project releases.</li>
+                    <li>Leveraged Git/GitHub for version control and successfully deployed and maintained live staging links for all client reviews.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Full-Stack Developer & Trader</span>
+                    <span class="job-date">Dec 2021 – Present (4 years 7 months)</span>
+                </div>
+                <div class="job-meta">Self-Employed</div>
+                <ul class="job-details">
+                    <li>Developed automated data scripts, portfolio analysis tools, and trading trackers using Python.</li>
+                    <li>Researched Web3 ecosystems (Ethereum, Solana, Base) to build clean frontend layouts for blockchain data and on-chain analysis.</li>
+                    <li>Maintained containerized deployment setups using Docker, improving testing reliability for trading bots and scripts.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Data Analyst & Educator</span>
+                    <span class="job-date">Dec 2019 – Present (6 years 7 months)</span>
+                </div>
+                <div class="job-meta">Self-Employed</div>
+                <ul class="job-details">
+                    <li>Conducted fundamental valuations (DCF) and macro research for financial markets, translating complex data sets into simple charts.</li>
+                    <li>Designed highly educational, visual slide decks and written guides explaining complex trading methodologies and design.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="edu-cert-grid">
+            <section>
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <div class="edu-title">B.Tech — Information Technology</div>
+                    <div class="edu-subtitle">Chandigarh Group of Colleges, Landran, Punjab</div>
+                    <div class="edu-date">2018 – 2022</div>
+                    <div style="font-size:12px; margin-top:4px;">
+                        • Developed a stock screener React app with custom interactive layout for final-year project.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Certifications</h2>
+                <ul class="cert-list">
+                    <li><span class="cert-title">Udemy:</span> Build Responsive Real-World Websites (HTML5/CSS3)</li>
+                    <li><span class="cert-title">Udemy:</span> The Web Developer Bootcamp (HTML, CSS, JS, Node)</li>
+                    <li><span class="cert-title">Programming:</span> Java Android Developer & Introduction to Python</li>
+                    <li><span class="cert-title">AI Agents:</span> Clawd Bot (OpenClaw) Crash Course</li>
+                    <li><span class="cert-title">Networking:</span> CCNA (Network Security & Routing)</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

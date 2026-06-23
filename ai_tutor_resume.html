@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parmeet Singh - Resume (AI Tutor / Domain Expert)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --primary-light: #475569;
+            --accent: #2563eb;
+            --accent-bg: #eff6ff;
+            --text: #334155;
+            --text-dark: #0f172a;
+            --border: #e2e8f0;
+            --bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: #f8fafc;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 50px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: var(--text-dark);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary-light);
+        }
+
+        .contact-info a {
+            color: var(--primary-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item:not(:last-child)::after {
+            content: "|";
+            margin-left: 15px;
+            color: var(--border);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        /* Grid for Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .skill-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 13px;
+        }
+
+        .skill-card strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        /* Experience Styles */
+        .job {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .job-meta {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .job-date {
+            font-size: 13px;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .job-details {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .job-details li {
+            font-size: 13.5px;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        .job-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background-color: var(--accent-bg);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box ul {
+            list-style-type: none;
+        }
+
+        .highlight-box li {
+            font-size: 13.5px;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .highlight-box li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Education & Certs */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .edu-item, .cert-item {
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .edu-title, .cert-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 13.5px;
+        }
+
+        .edu-subtitle {
+            color: var(--primary-light);
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .edu-date {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .cert-list {
+            list-style-type: none;
+        }
+
+        .cert-list li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .cert-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                border: none;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>Parmeet Singh</h1>
+            <div class="subtitle">Quantitative Trader | AI Domain Expert | Full-Stack Developer</div>
+            <div class="contact-info">
+                <span class="contact-item">
+                    <a href="mailto:singh.parmeet123@gmail.com">singh.parmeet123@gmail.com</a>
+                </span>
+                <span class="contact-item">Rajpura, Punjab, India</span>
+                <span class="contact-item">
+                    <a href="https://pms5566.github.io" target="_blank">pms5566.github.io</a>
+                </span>
+                <span class="contact-item">
+                    <a href="https://github.com/pms5566" target="_blank">github.com/pms5566</a>
+                </span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p class="summary-text">
+                Results-driven quantitative trading professional, full-stack developer, and AI domain expert with 6+ years of hands-on experience in financial analysis, frontend/backend development, and algorithmic design. Deeply experienced in evaluating AI-generated code, prompt engineering, and training AI models for web design, frontend/backend engineering, and finance. Adept at translating complex design systems, user flows, and coding logic into high-quality AI training data and structured feedback to improve model correctness.
+            </p>
+        </section>
+
+        <section>
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <strong>AI & Agent Evaluation</strong>
+                    AI agent development (OpenClaw/Clawd), prompt engineering, LLM evaluation, RLHF feedback, domain annotation, code safety, and correctness review.
+                </div>
+                <div class="skill-card">
+                    <strong>Frontend & Web Design</strong>
+                    HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Angular, Tailwind CSS, component-driven UI architecture, responsive design.
+                </div>
+                <div class="skill-card">
+                    <strong>Backend & DevOps</strong>
+                    Python, Node.js, Docker, Git/GitHub version control workflows, REST APIs, CI/CD pipeline automation, containerized deployments.
+                </div>
+                <div class="skill-card">
+                    <strong>Algorithmic Trading & Finance</strong>
+                    Python strategy automation, backtesting, live exchange APIs (Binance, MT5, ccxt), portfolio tracking, risk management, on-chain metrics.
+                </div>
+                <div class="skill-card">
+                    <strong>Technical & Fundamental Analysis</strong>
+                    Chart patterns, RSI, MACD, Bollinger Bands, Fibonacci, financial statement analysis, valuation models (DCF, P/E, P/B), macro research.
+                </div>
+                <div class="skill-card">
+                    <strong>Excel & Data Automation</strong>
+                    Financial modeling, trading analytics, portfolio tracking, pivot tables, VBA scripting, automated reporting via Python (openpyxl).
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Why I Am Ideal for AI Training Roles</h2>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>Expert Domain Knowledge:</strong> Over 6 years of actual market trading and financial analysis, allowing me to evaluate AI models for factual accuracy, risk modeling, and professional-level financial reporting.</li>
+                    <li><strong>Full-Stack Coding Proficiency:</strong> Able to rigorously assess AI-generated code across React, TypeScript, Angular, Python, and Docker for correctness, security, and styling guidelines.</li>
+                    <li><strong>Clear Communication:</strong> Proven ability to explain complex algorithmic, financial, and web design concepts in highly structured, clear formats suitable for AI training and domain annotation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Full-Stack Developer & Designer</span>
+                    <span class="job-date">July 2022 – Present (4 years)</span>
+                </div>
+                <div class="job-meta">Self-Employed | Rajpura, India</div>
+                <ul class="job-details">
+                    <li>Developed premium, responsive web applications using React, TypeScript, Angular, Tailwind CSS, and custom styling.</li>
+                    <li>Built real-time portfolio dashboards and trading analytics UIs integrating complex data visualizations with Chart.js.</li>
+                    <li>Evaluated AI-generated frontend and backend code for correctness, UI alignment, responsiveness, and clean architecture guidelines.</li>
+                    <li>Containerized applications using Docker and established structured version control workflows via Git/GitHub.</li>
+                    <li>Integrated third-party APIs (Binance, MT5) into custom web-based tracking and portfolio management platforms.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Crypto Trader & Investor</span>
+                    <span class="job-date">Dec 2021 – Present (4 years 7 months)</span>
+                </div>
+                <div class="job-meta">Self-Employed</div>
+                <ul class="job-details">
+                    <li>Active trader across major crypto assets (BTC, ETH) and DeFi protocols on decentralized and centralized exchanges.</li>
+                    <li>Developed and automated custom crypto trading strategies using Python and the ccxt API wrapper library.</li>
+                    <li>Conducted on-chain analysis and researched Web3 ecosystems including Ethereum, Solana, and Base for investment setups.</li>
+                    <li>Built portfolio trackers, risk automation tools, and signal generation scripts using Python and data libraries.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <span class="job-title">Equity Trader & Investor</span>
+                    <span class="job-date">Dec 2019 – Present (6 years 7 months)</span>
+                </div>
+                <div class="job-meta">Self-Employed</div>
+                <ul class="job-details">
+                    <li>Traded equities and derivatives across Indian (NSE, BSE) and global indices using multi-timeframe technical analysis.</li>
+                    <li>Applied DCF valuation, earnings reviews, and sector-based research to identify high-probability fundamental opportunities.</li>
+                    <li>Created educational material on trading systems and financial literacy—directly transferable to structured AI data training.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="edu-cert-grid">
+            <section>
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <div class="edu-title">B.Tech — Information Technology</div>
+                    <div class="edu-subtitle">Chandigarh Group of Colleges, Landran, Punjab</div>
+                    <div class="edu-date">2018 – 2022</div>
+                    <div style="font-size:12px; margin-top:4px;">
+                        • Final project: Automated Stock Screener using Python, ML, and a React Dashboard.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Certifications</h2>
+                <ul class="cert-list">
+                    <li><span class="cert-title">Udemy:</span> Build Responsive Real-World Websites (HTML5/CSS3)</li>
+                    <li><span class="cert-title">Udemy:</span> The Web Developer Bootcamp (HTML, CSS, JS, Node)</li>
+                    <li><span class="cert-title">AI Agents:</span> Clawd Bot (OpenClaw) Crash Course</li>
+                    <li><span class="cert-title">Networking:</span> CCNA (Network Security & TCP/IP Routing)</li>
+                    <li><span class="cert-title">Programming:</span> Introduction to Python & Java Android Development</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
