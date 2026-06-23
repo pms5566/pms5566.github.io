@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parmeet Singh | Web Designer & Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Parmeet Singh - Web Designer & Full-Stack Developer specializing in high-converting, responsive web designs.">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Sleek Dark Mode & Glassmorphism Design System */
+    :root {
+      --bg-dark: #0a0b10;
+      --bg-card: rgba(20, 22, 35, 0.45);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #8b5cf6; /* Vibrant violet */
+      --primary-glow: rgba(139, 92, 246, 0.15);
+      --secondary: #06b6d4; /* Neon Cyan */
+      --secondary-glow: rgba(6, 182, 212, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Ambient Glow Backgrounds */
+    .glow-blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      filter: blur(150px);
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .blob-1 {
+      top: -100px;
+      right: -100px;
+      background-color: var(--primary);
+    }
+
+    .blob-2 {
+      top: 600px;
+      left: -200px;
+      background-color: var(--secondary);
+    }
+
+    /* Header & Navigation */
+    header {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 11, 16, 0.7);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      color: #22d3ee;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa 10%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-muted);
+      font-size: 1.25rem;
+    }
+
+    /* Web Design Cases Section */
+    .portfolio-section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .section-title span {
+      color: var(--secondary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    /* Case Study Card with Glassmorphism */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--secondary-glow);
+    }
+
+    .card-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: #0a0b10;
+    }
+
+    .btn-primary:hover {
+      background: #22d3ee;
+      box-shadow: 0 4px 15px var(--secondary-glow);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Core Skills list */
+    .skills-section {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--primary);
+    }
+
+    .skill-card h4 {
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      background: rgba(6, 8, 12, 0.5);
+    }
+
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-email {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-email:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient background blobs -->
+  <div class="glow-blob blob-1"></div>
+  <div class="glow-blob blob-2"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <div class="logo">PARMEET SINGH</div>
+      <a href="mailto:singh.parmeet123@gmail.com" class="contact-btn">Get In Touch</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Available for Web Design Projects</div>
+      <h1>Web Designer &<br><span class="gradient-text">Full-Stack Developer</span></h1>
+      <p>I design conversion-driven, fast, and responsive user experiences, bridging the gap between Figma aesthetics and clean frontend implementation.</p>
+      <a href="mailto:singh.parmeet123@gmail.com" class="contact-btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Hire Me</a>
+    </div>
+  </section>
+
+  <!-- Portfolio / Design Cases Section -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <h2 class="section-title">Web Design <span>Case Studies</span></h2>
+      <div class="grid">
+        
+        <!-- Case 1: Iron Peak Gym -->
+        <div class="card">
+          <div class="card-content">
+            <h3>IRONPEAK Gym</h3>
+            <p>An ultra-premium, dark-themed fitness landing page. Designed with bold layout structures, high-contrast imagery containers, and fluid custom cursor interactions.</p>
+            <div class="tags">
+              <span class="tag">UI/UX Design</span>
+              <span class="tag">Conversion Design</span>
+              <span class="tag">Vanilla CSS</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/Iron-Peak-Gym/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/Iron-Peak-Gym" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: Preeti Agrawal Jewelry -->
+        <div class="card">
+          <div class="card-content">
+            <h3>Preeti Agrawal Jewelry</h3>
+            <p>An ethereal, luxury gemstone landing page. Features minimalist layout balances, fine grid borders, elegant typography hierarchy, and smooth product showcases.</p>
+            <div class="tags">
+              <span class="tag">Luxury Brand UI</span>
+              <span class="tag">Grid Layout</span>
+              <span class="tag">E-Commerce</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/preeti-agrawal-jewelry/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/preeti-agrawal-jewelry" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: Peak Roofing Co. -->
+        <div class="card">
+          <div class="card-content">
+            <h3>Peak Roofing Co.</h3>
+            <p>A premium local contractor landing page. Focuses on high-converting service grids, structured contact details, customer feedback carousels, and high accessibility metrics.</p>
+            <div class="tags">
+              <span class="tag">Local Business UI</span>
+              <span class="tag">Lead Gen Landing Page</span>
+              <span class="tag">Responsive Design</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/roofing-website/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/roofing-website" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4: Mumbai Heritage Inn -->
+        <div class="card">
+          <div class="card-content">
+            <h3>Mumbai Heritage Inn</h3>
+            <p>A cozy, warm 4-star boutique hotel website. Designed with clear amenity layouts, room booking options, and warm visual branding elements.</p>
+            <div class="tags">
+              <span class="tag">Boutique Hospitality</span>
+              <span class="tag">Layout Architecture</span>
+              <span class="tag">Responsive Web</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://pms5566.github.io/mumbai-hotel-website/" target="_blank" class="btn btn-primary">Live Demo</a>
+              <a href="https://github.com/pms5566/mumbai-hotel-website" target="_blank" class="btn btn-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills section -->
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Technical <span>Specialties</span></h2>
+      <div class="skills-grid">
+        
+        <div class="skill-card">
+          <h4>Web & UI/UX Design</h4>
+          <p>Figma, Auto-layout, Typography Scales, Color Theories, Responsive grids</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Frontend Dev</h4>
+          <p>HTML5, CSS3, ES6+, TypeScript, React.js, Angular, Tailwind CSS</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Backend & API Automation</h4>
+          <p>Python, Node.js, REST APIs, Webhook integrations</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Developer Handoff</h4>
+          <p>Pixel-perfect specs, component structures, asset packaging, git versioning</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Let's collaborate on your next design or development project.</p>
+      <a href="mailto:singh.parmeet123@gmail.com" class="footer-email">singh.parmeet123@gmail.com</a>
+      <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Parmeet Singh. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
